@@ -1,26 +1,17 @@
 package com.example.myflixsterpart2
-
 import android.support.annotation.Keep
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 
 
-@Keep
-@Serializable
-data class SearchNewsResponse(
-    @SerialName("results")
-    val results: BaseResponse?
-)
 
 @Keep
 @Serializable
-data class BaseResponse(
-    @SerialName("known_for")
+data class Results(
+    @SerialName("results")
     val known_for: List<BestActor>
 )
-
-
 
 
 

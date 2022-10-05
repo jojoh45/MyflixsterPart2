@@ -62,14 +62,14 @@ class MainActivity : AppCompatActivity() {
                 try {
                     // TODO: Create the parsedJSON
                     val parsedJson = createJson().decodeFromString(
-                        SearchNewsResponse.serializer(),
+                        Results.serializer(),
                         json.jsonObject.toString()
                     )
 
                     // TODO: Do something with the returned json (contains article information)
 
                     // TODO: Save the articles and reload the screen
-                    parsedJson.results?.know_for?.let { list ->
+                    parsedJson.known_for.let { list ->
                         actors.addAll(list)
 
                         actorAdapter.notifyDataSetChanged()

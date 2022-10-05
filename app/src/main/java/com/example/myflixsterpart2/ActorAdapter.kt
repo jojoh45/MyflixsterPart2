@@ -41,20 +41,20 @@ class ActorAdapter(private val context: Context, private val actors : List<BestA
             itemView.setOnClickListener(this)
         }
 
-        fun bind(BestActor: BestActor){
-            actorNameTextView.text = BestActor.actorName
+        fun bind(actor: BestActor){
+            actorNameTextView.text = actor.actorName
 
 
             Glide.with(context)
-                .load("https://image.tmdb.org/t/p/w500/" + BestActor.actorImageUrl)
+                .load("https://image.tmdb.org/t/p/w500/" + actor.actorImageUrl)
                 .into(actorImageView)
         }
 
         override fun onClick(v: View?) {
-            val bestActor = actors[absoluteAdapterPosition]
+            val act = actors[absoluteAdapterPosition]
 
             val intent = Intent(context, DetailActivity::class.java)
-            intent.putExtra(context, bestActor)
+            //intent.putExtra(ACTOR_EXTRA, act)
             context.startActivity(intent)
         }
     }
