@@ -54,7 +54,7 @@ class ActorAdapter(private val context: Context, private val actors : List<BestA
             val act = actors[absoluteAdapterPosition]
 
             val intent = Intent(context, DetailActivity::class.java)
-            //intent.putExtra(ACTOR_EXTRA, act)
+            intent.putExtra(ACTOR_EXTRA, act)
             context.startActivity(intent)
         }
     }

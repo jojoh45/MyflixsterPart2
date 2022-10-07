@@ -3,13 +3,12 @@ package com.example.myflixsterpart2
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myflixsterpart2.databinding.ActivityMainBinding
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import okhttp3.Headers
 import org.json.JSONException
@@ -45,7 +44,6 @@ class MainActivity : AppCompatActivity() {
 
         actorsRecyclerView.layoutManager = GridLayoutManager(this,2)
 
-
         val client = AsyncHttpClient()
         client.get(ACTOR_SEARCH_URL, object : JsonHttpResponseHandler(){
             override fun onFailure(
@@ -54,27 +52,21 @@ class MainActivity : AppCompatActivity() {
                 response: String?,
                 throwable: Throwable?
             ) {
-                Log.e(TAG, "Failed to fetch articles: $statusCode")
+                Log.e(TAG, "Failed to fetch actors: $statusCode")
             }
 
             override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
-                Log.i(TAG, "Successfully fetched articles: $json")
+                Log.i(TAG, "Successfully fetched actors: $json")
                 try {
                     // TODO: Create the parsedJSON
                     val parsedJson = createJson().decodeFromString(
-                        Results.serializer(),
+                        SearchActorResults.serializer(),
                         json.jsonObject.toString()
                     )
-
-                    // TODO: Do something with the returned json (contains article information)
-
-                    // TODO: Save the articles and reload the screen
-                    parsedJson.known_for.let { list ->
+                    parsedJson.response?.let { list ->
                         actors.addAll(list)
-
                         actorAdapter.notifyDataSetChanged()
                     }
-
                 } catch (e: JSONException) {
                     Log.e(TAG, "Exception: $e")
                 }

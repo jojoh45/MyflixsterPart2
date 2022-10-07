@@ -3,30 +3,33 @@ import android.support.annotation.Keep
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
-
-
 @Keep
 @Serializable
-data class Results(
+data class SearchActorResults(
     @SerialName("results")
-    val known_for: List<BestActor>
+    val response: List<BestActor>?
 )
 
 
+@Keep
+@Serializable
+data class BestActor(
+    @SerialName("name")
+    val actorName: String? = null ,
+    @SerialName("profile_path")
+    val actorImageUrl: String? = null,
+    @SerialName("known_for")
+    val known_for: KnownFor?
+) : java.io.Serializable
 
 
 @Keep
 @Serializable
-data class BestActor (
-    @SerialName("name")
-    val actorName: String?,
-    @SerialName("profile_path")
-    val actorImageUrl: String?,
+data class KnownFor(
     @SerialName("original_title")
-    val knowForText: String?,
+    val knownForText: String? = null,
     @SerialName("backdrop_path")
-    val knowForImageUrl: String?,
+    val knownForImageUrl: String? = null,
     @SerialName("overview")
     val overview: String?
-)
+): java.io.Serializable

@@ -18,6 +18,7 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstaceState: Bundle?) {
         super.onCreate(savedInstaceState)
         setContentView(R.layout.actor_detail)
+
         actorImageView = findViewById(R.id.actor_image)
         actorNameTextView = findViewById(R.id.actor_name2)
         knownForTextView = findViewById(R.id.Know_for)
@@ -25,17 +26,18 @@ class DetailActivity : AppCompatActivity() {
 
 
         val actor = intent.getSerializableExtra(ACTOR_EXTRA) as BestActor
+        val kf = intent.getSerializableExtra(ACTOR_EXTRA) as KnownFor
 
         actorNameTextView.text = actor.actorName
-        knownForTextView.text = actor.knowForText
-        overviewTextView.text = actor.overview
+        knownForTextView.text = kf.knownForText
+        overviewTextView.text = kf.overview
 
 
         Glide.with(this)
             .load("https://image.tmdb.org/t/p/w500/" + actor.actorImageUrl)
             .into(actorImageView)
         Glide.with(this)
-            .load("https://image.tmdb.org/t/p/w500/" + actor.knowForImageUrl)
+            .load("https://image.tmdb.org/t/p/w500/" + kf.knownForImageUrl)
             .into(movieImageView)
     }
 
