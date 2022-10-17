@@ -28,10 +28,13 @@ data class BestActor(
 @Keep
 @Serializable
 data class KnownFor(
+    @JvmField
     @SerializedName("original_title")
     val original_title: String? = null,
+    @JvmField
     @SerializedName("backdrop_path")
     val backdrop_path: String? = null,
+    @JvmField
     @SerializedName("overview")
     val overview: String? = null
-)
+) : java.io.Serializable

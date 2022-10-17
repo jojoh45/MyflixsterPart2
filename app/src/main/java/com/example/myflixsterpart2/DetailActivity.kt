@@ -29,7 +29,7 @@ class DetailActivity : AppCompatActivity() {
 
 
         val actor = intent.getSerializableExtra(ACTOR_EXTRA) as BestActor
-        val kf = intent.getSerializableExtra(ACTOR_EXTRA) as KnownFor
+        val kf = KnownFor()
 
 
         actorNameTextView.text = actor.actorName
