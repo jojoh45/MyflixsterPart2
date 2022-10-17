@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
@@ -34,8 +35,8 @@ class ActorAdapter(private val context: Context, private val actors : List<BestA
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
 
-        private val actorImageView = itemView.findViewById<ImageView>(R.id.actor_image2)
-        private val actorNameTextView = itemView.findViewById<TextView>(R.id.actor_name2)
+        private val actorImageView = itemView.findViewById<ImageView>(R.id.actor_image)
+        private val actorNameTextView = itemView.findViewById<TextView>(R.id.actor_name)
 
         init {
             itemView.setOnClickListener(this)

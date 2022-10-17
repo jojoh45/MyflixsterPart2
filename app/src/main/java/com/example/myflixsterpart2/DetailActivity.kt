@@ -8,6 +8,8 @@ import com.bumptech.glide.Glide
 
 private const val TAG = "DetailActivity"
 //FOR THE SECOND PAGE
+
+
 class DetailActivity : AppCompatActivity() {
     private lateinit var actorImageView: ImageView
     private lateinit var movieImageView: ImageView
@@ -19,25 +21,28 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstaceState)
         setContentView(R.layout.actor_detail)
 
-        actorImageView = findViewById(R.id.actor_image)
+        actorImageView = findViewById(R.id.actor_image2)
         actorNameTextView = findViewById(R.id.actor_name2)
         knownForTextView = findViewById(R.id.Know_for)
         overviewTextView = findViewById(R.id.OverView)
+        movieImageView = findViewById(R.id.movie_image)
 
 
         val actor = intent.getSerializableExtra(ACTOR_EXTRA) as BestActor
         val kf = intent.getSerializableExtra(ACTOR_EXTRA) as KnownFor
 
+
         actorNameTextView.text = actor.actorName
-        knownForTextView.text = kf.knownForText
+        knownForTextView.text = kf.original_title
         overviewTextView.text = kf.overview
 
 
         Glide.with(this)
             .load("https://image.tmdb.org/t/p/w500/" + actor.actorImageUrl)
+            .centerCrop()
             .into(actorImageView)
         Glide.with(this)
-            .load("https://image.tmdb.org/t/p/w500/" + kf.knownForImageUrl)
+            .load("https://image.tmdb.org/t/p/w500/" + kf.backdrop_path)
             .into(movieImageView)
     }
 

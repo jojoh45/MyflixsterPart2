@@ -1,5 +1,6 @@
 package com.example.myflixsterpart2
 import android.support.annotation.Keep
+import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -11,25 +12,26 @@ data class SearchActorResults(
 )
 
 
+
+
 @Keep
 @Serializable
 data class BestActor(
     @SerialName("name")
-    val actorName: String? = null ,
+    val actorName: String?,
     @SerialName("profile_path")
-    val actorImageUrl: String? = null,
+    val actorImageUrl: String?,
     @SerialName("known_for")
-    val known_for: KnownFor?
+    val known_for: List<KnownFor>?
 ) : java.io.Serializable
-
 
 @Keep
 @Serializable
 data class KnownFor(
-    @SerialName("original_title")
-    val knownForText: String? = null,
-    @SerialName("backdrop_path")
-    val knownForImageUrl: String? = null,
-    @SerialName("overview")
-    val overview: String?
-): java.io.Serializable
+    @SerializedName("original_title")
+    val original_title: String? = null,
+    @SerializedName("backdrop_path")
+    val backdrop_path: String? = null,
+    @SerializedName("overview")
+    val overview: String? = null
+)

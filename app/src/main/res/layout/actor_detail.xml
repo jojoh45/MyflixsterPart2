@@ -9,22 +9,21 @@
 
     <ImageView
         android:id="@+id/actor_image2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="77dp"
-        android:layout_marginEnd="56dp"
-        app:layout_constraintEnd_toStartOf="@+id/movie_image"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="195dp"
+        android:layout_height="242dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitXY"
         app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="4dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/movie_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="77dp"
-        android:layout_marginEnd="57dp"
+        android:layout_width="196dp"
+        android:layout_height="243dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -33,9 +32,13 @@
         android:id="@+id/actor_name2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="24dp"
         android:text="Name"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:typeface="sans"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/actor_image2" />
 
@@ -46,6 +49,7 @@
         android:layout_marginStart="39dp"
         android:layout_marginTop="32dp"
         android:text="Known For"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/actor_name2" />
 
@@ -56,6 +60,7 @@
         android:layout_marginStart="42dp"
         android:layout_marginTop="32dp"
         android:text="Overview"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Know_for" />
 </androidx.constraintlayout.widget.ConstraintLayout>

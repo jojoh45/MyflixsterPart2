@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-
         actorsRecyclerView = findViewById(R.id.actors)
 
         actorsRecyclerView.adapter = actorAdapter
@@ -52,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 response: String?,
                 throwable: Throwable?
             ) {
-                Log.e(TAG, "Failed to fetch actors: $statusCode")
+                Log.e(TAG, "Failed to fetch actors: $response")
             }
 
             override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
