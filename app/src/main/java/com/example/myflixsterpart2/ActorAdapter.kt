@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide
 const val ACTOR_EXTRA = "ACTOR_EXTRA"
 
 
-class ActorAdapter(private val context: Context, private val actors : List<BestActor>):
+class ActorAdapter(private val context: Context, private val actors : List<SearchActorResults>):
     RecyclerView.Adapter<ActorAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -42,7 +42,7 @@ class ActorAdapter(private val context: Context, private val actors : List<BestA
             itemView.setOnClickListener(this)
         }
 
-        fun bind(actor: BestActor){
+        fun bind(actor: SearchActorResults){
             actorNameTextView.text = actor.actorName
 
 

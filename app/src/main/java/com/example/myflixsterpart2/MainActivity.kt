@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myflixsterpart2.databinding.ActivityMainBinding
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import okhttp3.Headers
@@ -24,7 +26,7 @@ private const val ACTOR_SEARCH_URL =
     "https://api.themoviedb.org/3/person/popular?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1"
 
 class MainActivity : AppCompatActivity() {
-    private val actors = mutableListOf<BestActor>()
+    private val actors = mutableListOf<SearchActorResults>()
     private lateinit var actorsRecyclerView: RecyclerView
     private lateinit var binding: ActivityMainBinding
 
@@ -59,13 +61,15 @@ class MainActivity : AppCompatActivity() {
                 try {
                     // TODO: Create the parsedJSON
                     val parsedJson = createJson().decodeFromString(
-                        SearchActorResults.serializer(),
+                        Results.serializer(),
                         json.jsonObject.toString()
                     )
-                    parsedJson.response?.let { list ->
+                    parsedJson.results?.let { list ->
                         actors.addAll(list)
                         actorAdapter.notifyDataSetChanged()
                     }
+
+
                 } catch (e: JSONException) {
                     Log.e(TAG, "Exception: $e")
                 }

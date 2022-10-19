@@ -23,18 +23,18 @@ class DetailActivity : AppCompatActivity() {
 
         actorImageView = findViewById(R.id.actor_image2)
         actorNameTextView = findViewById(R.id.actor_name2)
-        knownForTextView = findViewById(R.id.Know_for)
+        knownForTextView = findViewById(R.id.Known_for)
         overviewTextView = findViewById(R.id.OverView)
         movieImageView = findViewById(R.id.movie_image)
 
 
-        val actor = intent.getSerializableExtra(ACTOR_EXTRA) as BestActor
+        val actor = intent.getSerializableExtra(ACTOR_EXTRA) as SearchActorResults
         val kf = KnownFor()
 
 
         actorNameTextView.text = actor.actorName
-        knownForTextView.text = kf.original_title
-        overviewTextView.text = kf.overview
+        knownForTextView.text = actor.ogTitle
+        overviewTextView.text = actor.stuff
 
 
         Glide.with(this)
@@ -42,7 +42,7 @@ class DetailActivity : AppCompatActivity() {
             .centerCrop()
             .into(actorImageView)
         Glide.with(this)
-            .load("https://image.tmdb.org/t/p/w500/" + kf.backdrop_path)
+            .load( actor.movieImage)
             .into(movieImageView)
     }
 
