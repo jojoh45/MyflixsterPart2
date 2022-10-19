@@ -11,11 +11,11 @@ Time spent: 15 hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] **Choose any endpoint on The MovieDB API except `now_playing`**
+- [X] **Choose any endpoint on The MovieDB API except `now_playing`**
   - Chosen Endpoint: People/Popular
-- [] **Make a request to your chosen endpoint and implement a RecyclerView to display all entries**
-- [ ] **Use Glide to load and display at least one image per entry**
-- [ ] **Click on an entry to view specific details about that entry using Intents**
+- [X] **Make a request to your chosen endpoint and implement a RecyclerView to display all entries**
+- [X] **Use Glide to load and display at least one image per entry**
+- [X] **Click on an entry to view specific details about that entry using Intents**
 
 The following **optional** features are implemented:
 
@@ -30,12 +30,9 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-![Project4](https://user-images.githubusercontent.com/111920942/194163678-fa20bbb8-24e8-4a03-81b8-65aafcb9b557.gif)
-
-
-
-
 GIF created with ScreenToGif
+![Project4](https://user-images.githubusercontent.com/111920942/196810713-b528d4da-a3cc-436e-b397-8e130d7c9f3f.gif)
+
 
 ## Notes
 
